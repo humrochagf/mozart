@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "dogsheep"
+version = "0.1.0"
+description = ""
+authors = ["Humberto Rocha <humrochagf@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+dogsheep-beta = "^0.10.2"
+twitter-to-sqlite = "^0.21.4"
+datasette = "^0.58.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

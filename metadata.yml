@@ -1,0 +1,9 @@
+title: Personal data
+description: Personal data assistant
+extra_css_urls:
+  - /static/main.css
+plugins:
+  dogsheep-beta:
+    database: dogsheep
+    config_file: dogsheep.yml
+    template_debug: true
