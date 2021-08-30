@@ -16,7 +16,7 @@ twitter.db:
             where
                 tweets.id = :key
         display: |-
-            <h3>Tweet: <a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
+            <h3>Tweet: <a href="{{ display.url }}/" target="_blank" rel="noopener noreferrer">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
             <blockquote>{{ search_1 }}</blockquote>
     users:
         sql: |-
@@ -46,7 +46,7 @@ twitter-faves.db:
             where
                 tweets.id = :key
         display: |-
-            <h3>Fave: <a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
+            <h3>Fave: <a href="{{ display.url }}/" target="_blank" rel="noopener noreferrer">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
             <blockquote>{{ search_1 }}</blockquote>
     users:
         sql: |-
