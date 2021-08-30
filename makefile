@@ -1,3 +1,7 @@
+.PHONY: index
+index:
+	cd data/ && poetry run dogsheep-beta index dogsheep.db ../dogsheep.yml
+
 .PHONY: server
 server:
 	poetry run datasette data -m metadata.yml --template-dir templates --static static:static/ --memory
@@ -9,10 +13,6 @@ twitter:
 .PHONY: twitter-faves
 twitter-faves:
 	poetry run twitter-to-sqlite favorites data/twitter-faves.db -a auth/twitter.json
-
-.PHONY: index
-index:
-	poetry run dogsheep-beta index data/dogsheep.db dogsheep.yml
 
 .PHONY: styles
 styles:

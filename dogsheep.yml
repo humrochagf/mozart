@@ -1,41 +1,59 @@
-data/twitter.db:
+twitter.db:
     tweets:
         sql: |-
             select
-            tweets.id as key,
-            'Tweet by @' || users.screen_name as title,
-            tweets.created_at as timestamp,
-            tweets.full_text as search_1
-            from tweets join users on tweets.user = users.id
+                tweets.id as key,
+                'Tweet by @' || users.screen_name as title,
+                tweets.created_at as timestamp,
+                tweets.full_text as search_1
+            from
+                tweets join users on tweets.user = users.id
+        display_sql: |-
+            select
+                'https://twitter.com/' || users.screen_name || '/status/' || tweets.id as url
+            from
+                tweets join users on tweets.user = users.id
+            where
+                tweets.id = :key
         display: |-
-            <p>{{ title }} - tweeted at {{ timestamp }}</p>
+            <h3><a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
             <blockquote>{{ search_1 }}</blockquote>
     users:
         sql: |-
             select
-            id as key,
-            name || ' @' || screen_name as title,
-            created_at as timestamp,
-            description as search_1
-            from users
+                id as key,
+                name || ' @' || screen_name as title,
+                created_at as timestamp,
+                description as search_1
+            from
+                users
 
-data/twitter-faves.db:
+twitter-faves.db:
     tweets:
         sql: |-
             select
-            tweets.id as key,
-            'Tweet by @' || users.screen_name as title,
-            tweets.created_at as timestamp,
-            tweets.full_text as search_1
-            from tweets join users on tweets.user = users.id
+                tweets.id as key,
+                'Tweet by @' || users.screen_name as title,
+                tweets.created_at as timestamp,
+                tweets.full_text as search_1
+            from
+                tweets join users on tweets.user = users.id
+        display_sql: |-
+            select
+                'https://twitter.com/' || users.screen_name || '/status/' || tweets.id as url
+            from
+                tweets join users on tweets.user = users.id
+            where
+                tweets.id = :key
         display: |-
-            <p>{{ title }} - tweeted at {{ timestamp }}</p>
+            <h3><a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
             <blockquote>{{ search_1 }}</blockquote>
     users:
         sql: |-
             select
-            id as key,
-            name || ' @' || screen_name as title,
-            created_at as timestamp,
-            description as search_1
-            from users
+                id as key,
+                name || ' @' || screen_name as title,
+                created_at as timestamp,
+                description as search_1
+            from
+                users
