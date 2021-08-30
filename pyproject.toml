@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dogsheep"
+name = "my-dogsheep"
 version = "0.1.0"
 description = ""
 authors = ["Humberto Rocha <humrochagf@gmail.com>"]
