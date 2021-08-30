@@ -3,7 +3,7 @@ twitter.db:
         sql: |-
             select
                 tweets.id as key,
-                'Tweet by @' || users.screen_name as title,
+                'tweet by @' || users.screen_name as title,
                 tweets.created_at as timestamp,
                 tweets.full_text as search_1
             from
@@ -16,7 +16,7 @@ twitter.db:
             where
                 tweets.id = :key
         display: |-
-            <h3><a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
+            <h3>Tweet: <a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
             <blockquote>{{ search_1 }}</blockquote>
     users:
         sql: |-
@@ -33,7 +33,7 @@ twitter-faves.db:
         sql: |-
             select
                 tweets.id as key,
-                'Tweet by @' || users.screen_name as title,
+                'tweet by @' || users.screen_name as title,
                 tweets.created_at as timestamp,
                 tweets.full_text as search_1
             from
@@ -46,7 +46,7 @@ twitter-faves.db:
             where
                 tweets.id = :key
         display: |-
-            <h3><a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
+            <h3>Fave: <a href="{{ display.url }}/">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
             <blockquote>{{ search_1 }}</blockquote>
     users:
         sql: |-
