@@ -1,3 +1,3 @@
-# My Dogsheep
+# Mozart
 
-Just my personal data discovery setup using dogsheep
+Personal data aggregator using [Dogsheep](https://github.com/dogsheep/dogsheep-beta) and [Datasette](https://datasette.io/).

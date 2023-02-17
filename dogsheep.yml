@@ -57,3 +57,20 @@ twitter-faves.db:
                 description as search_1
             from
                 users
+
+github.db:
+    repos:
+        sql: |-
+            select
+                repos.id as key,
+                repos.name || ' by @' || users.login as title,
+                repos.updated_at as timestamp,
+                repos.name as search_1
+            from repos join users on repos.owner = users.id
+    users:
+        sql: |-
+            select
+                id as key,
+                '@' || login as title,
+                login as search_1
+            from users
