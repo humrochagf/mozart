@@ -1,76 +1,65 @@
 twitter.db:
-    tweets:
-        sql: |-
-            select
-                tweets.id as key,
-                'tweet by @' || users.screen_name as title,
-                tweets.created_at as timestamp,
-                tweets.full_text as search_1
-            from
-                tweets join users on tweets.user = users.id
-        display_sql: |-
-            select
-                'https://twitter.com/' || users.screen_name || '/status/' || tweets.id as url
-            from
-                tweets join users on tweets.user = users.id
-            where
-                tweets.id = :key
-        display: |-
-            <h3>Tweet: <a href="{{ display.url }}/" target="_blank" rel="noopener noreferrer">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
-            <blockquote>{{ search_1 }}</blockquote>
-    users:
-        sql: |-
-            select
-                id as key,
-                name || ' @' || screen_name as title,
-                created_at as timestamp,
-                description as search_1
-            from
-                users
+  tweets:
+    sql: |-
+      select
+        tweets.id as key,
+        'tweet by @' || users.screen_name as title,
+        tweets.created_at as timestamp,
+        tweets.full_text as search_1
+      from
+        tweets join users on tweets.user = users.id
+    display_sql: |-
+      select
+        'https://twitter.com/' || users.screen_name || '/status/' || tweets.id as url
+      from
+        tweets join users on tweets.user = users.id
+      where
+        tweets.id = :key
+    display: |-
+      <p><b>Tweet:</b> <a href="{{ display.url }}/" target="_blank" rel="noopener noreferrer">{{ title }}</a> - tweeted at {{ timestamp }}</p>
+      <blockquote>{{ search_1 }}</blockquote>
 
 twitter-faves.db:
-    tweets:
-        sql: |-
-            select
-                tweets.id as key,
-                'tweet by @' || users.screen_name as title,
-                tweets.created_at as timestamp,
-                tweets.full_text as search_1
-            from
-                tweets join users on tweets.user = users.id
-        display_sql: |-
-            select
-                'https://twitter.com/' || users.screen_name || '/status/' || tweets.id as url
-            from
-                tweets join users on tweets.user = users.id
-            where
-                tweets.id = :key
-        display: |-
-            <h3>Fave: <a href="{{ display.url }}/" target="_blank" rel="noopener noreferrer">{{ title }}</a> - tweeted at {{ timestamp }}</h3>
-            <blockquote>{{ search_1 }}</blockquote>
-    users:
-        sql: |-
-            select
-                id as key,
-                name || ' @' || screen_name as title,
-                created_at as timestamp,
-                description as search_1
-            from
-                users
+  tweets:
+    sql: |-
+      select
+        tweets.id as key,
+        'tweet by @' || users.screen_name as title,
+        tweets.created_at as timestamp,
+        tweets.full_text as search_1
+      from
+        tweets join users on tweets.user = users.id
+    display_sql: |-
+      select
+        'https://twitter.com/' || users.screen_name || '/status/' || tweets.id as url
+      from
+        tweets join users on tweets.user = users.id
+      where
+        tweets.id = :key
+    display: |-
+      <p><b>Fave:</b> <a href="{{ display.url }}/" target="_blank" rel="noopener noreferrer">{{ title }}</a> - tweeted at {{ timestamp }}</p>
+      <blockquote>{{ search_1 }}</blockquote>
 
 github.db:
-    repos:
-        sql: |-
-            select
-                repos.id as key,
-                repos.name || ' by @' || users.login as title,
-                repos.updated_at as timestamp,
-                repos.name as search_1
-            from repos join users on repos.owner = users.id
-    users:
-        sql: |-
-            select
-                id as key,
-                '@' || login as title,
-                login as search_1
-            from users
+  repos:
+    sql: |-
+      select
+        repos.id as key,
+        repos.name || ' by @' || users.login as title,
+        repos.updated_at as timestamp,
+        repos.name as search_1
+      from repos join users on repos.owner = users.id
+    display_sql: |-
+      select
+        repos.description,
+        repos.html_url,
+        repos.language
+      from
+        repos
+      where
+        repos.id = :key
+    display: |-
+      <p><b>Repo:</b> <a href="{{ display.html_url }}" target="_blank" rel="noopener noreferrer">{{ title }}</a></p>
+      <p><b>Lang:</b> {{ display.language }}</p>
+      </br>
+      <p>{{ display.description }}</p>
