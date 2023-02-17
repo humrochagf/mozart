@@ -1,7 +1,7 @@
-title: Personal data
-description: Personal data assistant
+title: Mozart
+description: Personal Data Retriever
 extra_css_urls:
-  - /static/main.css
+  - /static/css/main.css
 plugins:
   dogsheep-beta:
     database: dogsheep

@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .logo {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    @apply border-black;
+    @apply border-4;
+    @apply border-solid;
+    @apply rounded-full;
+
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+  }
+
+  h1 {
+    @apply text-2xl;
+    @apply text-center;
+    @apply font-black;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+}

@@ -17,4 +17,4 @@ github:
 
 .PHONY: styles
 styles:
-	npx tailwindcss -i ui/styles/main.css -o ui/static/main.css --watch
+	npx tailwindcss -i ui/styles/main.css -o ui/static/css/main.css --watch

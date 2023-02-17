@@ -8,4 +8,4 @@ __pycache__
 auth
 data
 env
-ui/static
+ui/static/css

@@ -20,7 +20,15 @@
   </head>
 
   <body class="{% block body_class %}{% endblock %}">
-    <header>
+    <header class="flex flex-col justify-center bg-white text-black">
+      <div class="logo py-2">
+        <img src="/static/img/mozart.jpg" class="rounded-full" alt="Mozart">
+      </div>
+
+      <div class="text-center">
+        <p>I'm a good boy!</p>
+      </div>
+
       <nav>
         {% block nav %}
           {% set links = menu_links() %}

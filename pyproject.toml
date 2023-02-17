@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mozart"
-description = "Personal data aggregator with Dogsheep and Datasette"
+description = "Personal Data Retriever with Dogsheep and Datasette"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
